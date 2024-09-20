@@ -33,7 +33,6 @@ def app(mycursor, connection, pd):
         clientes_dict = {nome: id for id, nome in clientes}
         selec_cliente = st.selectbox("Selecione um cliente associado", list(clientes_dict.keys()))
         id_selecionado = clientes_dict[selec_cliente]
-        
         if st.button("Inserir"):
             sql=f"INSERT INTO PEDIDO(ID,DESCRICAO,VALOR,ID_CLIENTE) VALUES('{id}','{desc}',{valor},'{id_selecionado}')"
             mycursor.execute(sql)
